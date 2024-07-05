@@ -1,0 +1,11 @@
+div.Wrapper {
+    width: 210px;
+    height: 274px;
+    background-color: #D9D9D9;
+    border-radius: 27px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 14px;
+    padding: 20px 8px 12px;
+}

@@ -1,0 +1,9 @@
+.ButtonBox {
+    width: 100%;
+    height: 80%;
+    background-color: #B14E4E;
+    border-radius: 17px;
+    display: flex;
+    flex-flow: wrap;
+
+}
