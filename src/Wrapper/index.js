@@ -1,39 +1,35 @@
+import "./index.css";
+import Screen from "./Screen.js";
+import ButtonBox from "./ButtonBox";
+import { useEffect, useState } from "react";
+import clickOnCalcHandler from "./ButtonBox/Button/helper.js";
+import listElements from "./ButtonBox/data.js";
 
-import './index.css';
-import Screen from './Screen.js';
-import ButtonBox from './ButtonBox'
-import { useEffect, useState } from 'react';
-import listElements from './ButtonBox/data.js';
+function Wrapper() {
+  const [expression, setExpression] = useState("");
 
+  useEffect(() => {
+    window.addEventListener("keydown", function (event) {
+      const buttonOfListElements = listElements.find(
+        ({ title, value }) => value === event.key || title === event.key
+      );
 
-function Wrapper(props) {
-    const [expression, setExpression] = useState('');
-    const signs = ['%', '+', '-', '='];
-    for (let i = 0; i < 4; i++) {
-        console.log(signs[i]);
-    }
+      if (!buttonOfListElements) throw Error("ты лох");
+      const { type, value, title } = buttonOfListElements;
 
-    useEffect(() => {
-        window.addEventListener('keydown', function (event) {
-            if (isNaN(event.key) === false) {
-                try {
-                    return setExpression((prev) => prev + event.key);
-                } catch (error) {
-                    return console.log(event.key);
-                }
-            }
-            if (event.key === '-') {
-            }
-        });
-    }, []);
+      try {
+        return clickOnCalcHandler(setExpression, type, value || title);
+      } catch (error) {
+        return alert(error.message);
+      }
+    });
+  }, []);
 
-
-    return (
-        <div className='Wrapper'>
-            <Screen title={expression} />
-            <ButtonBox setExpressionButtonBox={setExpression} />
-
-        </div>
-    )
+  return (
+    <div className="Wrapper">
+      <Screen title={expression} />
+      <ButtonBox setExpressionButtonBox={setExpression} />
+    </div>
+  );
 }
 export default Wrapper;
