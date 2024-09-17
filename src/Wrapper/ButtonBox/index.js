@@ -8,14 +8,15 @@ const ButtonBox = (props) => {
 
 
     return (
-        <div className="ButtonBox">
+        <div className="buttonBox">
             {listElements.map((element, index) => {
                 return (
                     <Button
                         setExpressionButton={props.setExpressionButtonBox}
                         key={index}
-                        title={element.title}
-                        type={element.type}
+                        {...element}
+                    //    title={element.title}
+                    //    type={element.type}
                     />
                 )
             })}

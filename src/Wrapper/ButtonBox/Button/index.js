@@ -3,12 +3,13 @@ import { BUTTON_TYPE } from '../data';
 import clickOnCalcHandler from './helper';
 
 const Button = (props) => {
+    if (props.isHidden) {
+        return null;
+    }
     return (
         <button
             onClick={() => clickOnCalcHandler(props.setExpressionButton, props.type, props.title)}
-            onKeyDown={(e) => console.log(e)}
-
-            className='Button'
+            className='button'
         >
             {props.title}
         </button >

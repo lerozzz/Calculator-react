@@ -12,6 +12,7 @@ export const BUTTON_TYPE = {
   PLUS: "plus",
   DOT: "dot",
   EQUALS: "equals",
+  BACKSPACE: "delete"
 };
 
 const listElements = [
@@ -34,6 +35,7 @@ const listElements = [
   { title: "0", type: BUTTON_TYPE.NUMBER },
   { title: ".", type: BUTTON_TYPE.DOT },
   { title: "=", type: BUTTON_TYPE.EQUALS, value: "Enter" },
+  { title: 'del', type: BUTTON_TYPE.BACKSPACE, value: "Backspace", isHidden: true },
 ];
 
 export default listElements;

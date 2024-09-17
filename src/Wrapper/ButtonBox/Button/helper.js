@@ -26,6 +26,10 @@ const clickOnCalcHandler = (setExpressionButton, type, value) => {
       setExpressionButton((prev) => prev / 100);
       return;
     }
+    case BUTTON_TYPE.BACKSPACE: {
+      setExpressionButton((prev) => prev.slice(0, -1));
+      return;
+    }
 
     default: {
       setExpressionButton((prev) => prev + value);
